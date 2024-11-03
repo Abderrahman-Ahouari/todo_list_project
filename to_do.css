@@ -2,13 +2,14 @@
     margin-top: 180px;
 display: flex;
 justify-content: space-around;
+   
 
 }
 
 .title-todo{
     border-bottom: red 3px solid;
     width: 400px;
-    padding: 15px;
+    padding: 15px; 
     font-size: 30px;  
 }
 
@@ -73,3 +74,93 @@ justify-content: space-around;
     background-color: rgba(127, 255, 127, 0.747);
 }
 
+#edit_card{
+    margin: auto;
+    position: relative;
+    
+}
+
+@media (max-width:500px){
+
+    .container{
+    margin-top: 180px;  
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 200px;
+    }
+    
+    .title-todo{
+        border-bottom: red 3px solid;
+        width: 400px;
+        padding: 15px; 
+        font-size: 30px;  
+        width: 100%;
+    }
+    
+    .to-do{
+        
+    }
+    
+    .n-todo{
+        color: gray;
+        border-left: gray solid 1px;
+        padding: 15px;
+    }
+    
+    .title-doing{
+        border-bottom: yellow 3px solid;
+        width: 400px;
+        padding: 15px;
+        font-size: 30px;  
+        width: 100%;
+    }
+    
+    .doing{
+         
+    }
+    
+    .n-doing{
+        color: gray;
+        border-left: gray solid 1px;
+        padding: 15px;
+    }
+    
+    .title-done{
+        border-bottom: green 3px solid;
+        width: 400px;
+        padding: 15px;
+        font-size: 30px;
+        width: 100%;  
+        
+    }
+    
+    .done{
+        
+    }
+    
+    .n-done{
+        color: gray;
+        border-left: gray solid 1px;
+        padding: 15px;
+    }
+    
+    
+    
+    
+    .add-search{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 100px;
+        width: 100%;
+    }
+    
+    .add-card{
+        border: solid 4px red;
+        border-radius: 25px;
+        width: 700px;
+        background-color: rgba(127, 255, 127, 0.747);
+    }
+    
+
+}
