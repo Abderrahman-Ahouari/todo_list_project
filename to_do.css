@@ -81,17 +81,15 @@ justify-content: space-around;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1; 
-    }
-  }
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
   
   #form {
-    display: none;
-    animation: fadeIn .8s; 
+    animation: fadeIn 0.5s ease-in-out;
+
   }
 @media (max-width:500px){
 
@@ -175,5 +173,18 @@ justify-content: space-around;
         background-color: rgba(127, 255, 127, 0.747);
     }
     
-
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+      
+      #form {
+        display: none;
+        animation: fadeIn .8s; 
+      }
+      
 }

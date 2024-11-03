@@ -5,12 +5,11 @@ let addtask = document.getElementById("addtask");
 let tasks = [];
 let editIndex = null;
 
-// Counters for each task status
+
 let todoCount = 0;
 let doingCount = 0;
 let doneCount = 0;
 
-// Elements to display counters (these IDs should match your HTML IDs for the counters)
 let todoCounter = document.getElementById("todoCounter");
 let doingCounter = document.getElementById("doingCounter");
 let doneCounter = document.getElementById("doneCounter");
@@ -22,14 +21,11 @@ let dateend = document.getElementById("dateend");
 let category = document.getElementById("category");
 let statu = document.getElementById("statu");
 
-// Toggle form visibility
 task.onclick = toggle_form;
 close_btn.onclick = toggle_form;
 addtask.addEventListener("click", add_task);
 
-// Function to add a new task
 function add_task() {               
-  // Validate inputs           
   if (!tite.value || !description.value || !dateend.value || !category.value || !statu.value) {
     alert("Tous les champs doivent être remplis !");
     return;
@@ -40,8 +36,7 @@ function add_task() {
     return;
   }
 
-  // Check if start date is less than end date
-  const startDate = new Date(); // Assuming the start date is now or can be set as an input
+  const startDate = new Date(); 
   const endDate = new Date(dateend.value);
   
   if (endDate <= startDate) {
@@ -49,7 +44,7 @@ function add_task() {
     return;
   }
 
-  // Proceed with adding the task if validations pass
+  
   if (editIndex === null) {
     let newtask = {
       title: tite.value,
@@ -74,7 +69,7 @@ function add_task() {
   creat_task();
   clear_inputs();
 }
-// Clear input fields
+
 function clear_inputs() {
   tite.value = "";
   description.value = "";
@@ -83,7 +78,6 @@ function clear_inputs() {
   statu.value = "To do";
 }
 
-// Function to create tasks and update counters
 function creat_task() {
   const todo = document.querySelector('#todoholder');
   const doing = document.querySelector('#doingholder');
@@ -93,7 +87,6 @@ function creat_task() {
   doing.innerHTML = '';
   done.innerHTML = '';
 
-  // Reset counters
   todoCount = 0;
   doingCount = 0;
   doneCount = 0;
@@ -137,13 +130,11 @@ function creat_task() {
     }
   });
 
-  // Update counters in HTML
   todoCounter.textContent = ` ${todoCount}`;
   doingCounter.textContent = ` ${doingCount}`;
   doneCounter.textContent = ` ${doneCount}`;
 }
 
-// Function to edit a task
 function editTask(index) {
   editIndex = index;
   tite.value = tasks[index].title;
@@ -156,13 +147,11 @@ function editTask(index) {
   toggle_form();
 }
 
-// Function to delete a task
 function deleteTask(id) {
   tasks = tasks.filter(task => task.id !== id);
   creat_task();
 }
 
-// Function to toggle form visibility
 function toggle_form() {
   form.classList.toggle("hidden");
   if (editIndex === null) addtask.textContent = "Ajouter";
