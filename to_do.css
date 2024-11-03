@@ -80,6 +80,19 @@ justify-content: space-around;
     
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1; 
+    }
+  }
+  
+  #form {
+    display: none;
+    animation: fadeIn .8s; 
+  }
 @media (max-width:500px){
 
     .container{

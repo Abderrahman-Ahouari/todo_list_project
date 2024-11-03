@@ -17,6 +17,7 @@ let doneCounter = document.getElementById("doneCounter");
 
 let tite = document.getElementById("titre");
 let description = document.getElementById("description");
+let datestart = document.getElementById("datestart");
 let dateend = document.getElementById("dateend");
 let category = document.getElementById("category");
 let statu = document.getElementById("statu");
@@ -27,7 +28,28 @@ close_btn.onclick = toggle_form;
 addtask.addEventListener("click", add_task);
 
 // Function to add a new task
-function add_task() {
+function add_task() {               
+  // Validate inputs           
+  if (!tite.value || !description.value || !dateend.value || !category.value || !statu.value) {
+    alert("Tous les champs doivent être remplis !");
+    return;
+  }
+
+  if (description.value.length > 500) {
+    alert("La description ne doit pas dépasser 500 caractères !");
+    return;
+  }
+
+  // Check if start date is less than end date
+  const startDate = new Date(); // Assuming the start date is now or can be set as an input
+  const endDate = new Date(dateend.value);
+  
+  if (endDate <= startDate) {
+    alert("La date de fin doit être postérieure à la date de début !");
+    return;
+  }
+
+  // Proceed with adding the task if validations pass
   if (editIndex === null) {
     let newtask = {
       title: tite.value,
@@ -47,12 +69,11 @@ function add_task() {
     editIndex = null;
     addtask.textContent = "Ajouter";
   }
-  
+
   toggle_form();
   creat_task();
   clear_inputs();
 }
-
 // Clear input fields
 function clear_inputs() {
   tite.value = "";
@@ -146,3 +167,4 @@ function toggle_form() {
   form.classList.toggle("hidden");
   if (editIndex === null) addtask.textContent = "Ajouter";
 }
+
